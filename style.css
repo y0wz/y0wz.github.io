@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(120deg,#333333,#666666);
+    color: white;
+    font-family: "Abel", sans-serif;
+    min-height: 100vh;
+}
+header{
+    font-size: 5rem;
+}
+
+header,
+form{
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button{
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+}
+form button{
+    color: #333333;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+form button:hover{
+    background: #333333;
+    color: white;
+}
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo-list{
+    min-width: 30%;
+    list-style: none;
+}
+.todo {
+    margin: 0.5rem;
+    background: grey;
+    color: white;
+    font-size: 1,5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.todo li {
+    flex: 1;
+}
+.smash-btn,
+.complete-btn{
+    background: #333333;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
+.complete-btn:hover{
+    background: greenyellow;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.smash-btn:hover{
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.todo-item{
+    padding: 0rem 0.5rem;
+}
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.smashed {
+    text-decoration: crimson;
+    opacity: 0.5;
+}
+.fall{
+    transform: translateY(20rem) rotateZ(180deg);
+    opacity: 0;
+}
+
