@@ -1,63 +1,92 @@
-//selectors
-const todoInput = document.querySelector('.todo-input')
-const todoButton = document.querySelector('.todo-button')
-const todoList = document.querySelector('.todo-list')
+//Movement Animation
+const contentHome = document.querySelector(".content-home");
+const textHome = document.querySelector(".textHome");
 
-//eventlisteners
-todoButton.addEventListener('click', addTodo);
-todoList.addEventListener('click', DeleteCheck);
+//Y0wz
+contentHome.addEventListener("mousemove", (e) => {
+  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+  let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+  contentHome.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
 
-//function
-function addTodo(event) {
-    //Seite nicht neu laden bei jedem Klick
-    event.preventDefault();
-    //Abfragen ob feld leer ist
+//Wenn Maus in den Bereich eintritt
+contentHome.addEventListener("mouseenter", (e) => {
+  contentHome.style.transition = "none";
+  //Popout
+  textHome.style.transform = "translateZ(20px)";
+  textHome.style.transform = "translateZ(150px) rotateZ(0deg)";
+});
 
-    if (todoInput.value == ""){
-        return;
-    }
+//Wenn Maus den Bereich verlässt
+contentHome.addEventListener("mouseleave", (e) => {
+  contentHome.style.transition = "all 0.5s ease";
+  contentHome.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  //Popback
+  textHome.style.transform = "translateZ(0px)";
+  textHome.style.transform = "translateZ(0px) rotateZ(0deg)";
+});
 
-    //Todo Div
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
-    //Create li
-    const newTodo = document.createElement("li");
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add("todo-item");
-    todoDiv.appendChild(newTodo);
-    //buttons check
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML = '<i class="fas fa-check"> </i>';
-    completedButton.classList.add("complete-btn");
-    todoDiv.appendChild(completedButton);
-    //buttons smash
-    const smashButton = document.createElement('button');
-    smashButton.innerHTML = '<i class="fas fa-trash"> </i>';
-    smashButton.classList.add("smash-btn");
-    todoDiv.appendChild(smashButton);
-    //Append to Htmllist
-    todoList.appendChild(todoDiv);
-    //clear input
-    todoInput.value = "";
-}
+//Movement Animation
+const contentBlog = document.querySelector(".content-blog");
+const textBlog = document.querySelector(".textBlog");
 
-function DeleteCheck(e) {
-    const item = e.target;
-    //Löschen
-    if (item.classList[0] === 'smash-btn') {
-        const todo = item.parentElement;
-        //Animation
-        todo.classList.add('fall');
-        todo.addEventListener('transitionend', function(){
-            todo.remove();
-        })
+//Y0wz
+contentBlog.addEventListener("mousemove", (e) => {
+  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+  let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+  contentBlog.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
 
+//Wenn Maus in den Bereich eintritt
+contentBlog.addEventListener("mouseenter", (e) => {
+  contentBlog.style.transition = "none";
+  //Popout
+  textBlog.style.transform = "translateZ(150px) rotateZ(0deg)";
+});
 
-    }
-    //Checken
-    if (item.classList[0] === 'complete-btn') {
-        const todo = item.parentElement;
-        todo.classList.toggle('completed')
-    }
+//Wenn Maus den Bereich verlässt
+contentBlog.addEventListener("mouseleave", (e) => {
+  contentBlog.style.transition = "all 0.5s ease";
+  contentBlog.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  //Popback
+  textBlog.style.transform = "translateZ(0px)";
+  textBlog.style.transform = "translateZ(0px) rotateZ(0deg)";
+});
 
-}
+//Movement Animation
+const contentAbout = document.querySelector(".content-about");
+const textAbout = document.querySelector(".textAbout");
+
+//Y0wz
+contentAbout.addEventListener("mousemove", (e) => {
+  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+  let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+  contentAbout.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+
+//Wenn Maus in den Bereich eintritt
+contentAbout.addEventListener("mouseenter", (e) => {
+  contentAbout.style.transition = "none";
+  //Popout
+  textAbout.style.transform = "translateZ(150px) rotateZ(0deg)";
+});
+
+//Wenn Maus den Bereich verlässt
+contentAbout.addEventListener("mouseleave", (e) => {
+  contentAbout.style.transition = "all 0.5s ease";
+  contentAbout.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  //Popback
+  textAbout.style.transform = "translateZ(0px)";
+  textAbout.style.transform = "translateZ(0px) rotateZ(0deg)";
+});
+
+//Pewpew effekte digga mega sick
+contentHome.addEventListener("mouseenter", (e) => {
+  document.getElementById("myaudio").play();
+});
+contentBlog.addEventListener("mouseenter", (e) => {
+  document.getElementById("myaudio").play();
+});
+contentAbout.addEventListener("mouseenter", (e) => {
+  document.getElementById("myaudio").play();
+});
